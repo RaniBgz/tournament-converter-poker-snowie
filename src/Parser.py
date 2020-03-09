@@ -15,7 +15,7 @@ class ETL:
     _history_path = ""
     _file_dict = {}
     _conv_suffix = "_converted"
-    _tourney_names = {"Kill The Fish", "MONSTER STACK"}
+    _tourney_names = {"Kill The Fish", "MONSTER STACK", "Birthday Freeroll"}
     _file_by_tourney = {}  # dict with a 'tourney_name' as key and a file as value.
     _eur_sym = "€"
 
@@ -62,12 +62,8 @@ class ETL:
         Map a file to its transformation method by the tournament name
         """
         file_path = self._history_path + "/" + file_name
-        if tourney_name == "Kill The Fish":
-            return Transformer.transform_kill_the_fish(file_path)
-        elif tourney_name == "MONSTER STACK":
-            return Transformer.transform_monster_stack(file_path)
-        else:
-            pass
+        tn_name_length = len(tourney_name.split())
+        return Transformer.transform_tournament_generic(file_path, tn_name_length)
 
     def load(self, new_file, original_file_name):
         """
