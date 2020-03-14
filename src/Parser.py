@@ -15,7 +15,7 @@ class ETL:
     _history_path = ""
     _file_dict = {}
     _conv_suffix = "_converted"
-    _tourney_names = {"Kill The Fish", "MONSTER STACK", "Birthday Freeroll"}
+    _tourney_names = {"Kill The Fish", "MONSTER STACK", "Birthday Freeroll", "Deepstack Hold'em"}
     _file_by_tourney = {}  # dict with a 'tourney_name' as key and a file as value.
     _eur_sym = "€"
 
